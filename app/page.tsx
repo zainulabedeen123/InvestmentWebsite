@@ -1,101 +1,100 @@
-import Image from "next/image";
+import HeroSection from '@/components/sections/HeroSection';
+import Navbar from '@/components/layout/Navbar';
+import MetricsSection from '@/components/sections/MetricsSection';
+import FeaturesSection from '@/components/sections/FeaturesSection';
+import ROISection from '@/components/sections/ROISection';
+import GettingStartedSection from '@/components/sections/GettingStartedSection';
+import HowItWorksSection from '@/components/sections/HowItWorksSection';
+import PartnersSection from '@/components/sections/PartnersSection';
+import TestimonialsSection from '@/components/sections/TestimonialsSection';
+import AppDownloadSection from '@/components/sections/AppDownloadSection';
+import Footer from '@/components/layout/Footer';
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const metrics = [
+    { value: '50K+', label: 'User Accounts' },
+    { value: '$19.8m', label: 'Total Value Locked' },
+    { value: '113', label: 'Units' },
+    { value: '31', label: 'Available Countries' },
+    { value: '$600K+', label: 'Yields Distributed' },
+  ];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const features = [
+    {
+      title: 'Fully Managed Process',
+      description: 'We handle all the paperwork and management process, making investing in real estate as easy as buying stocks.',
+      icon: '🏢'
+    },
+    {
+      title: 'Ease of Use',
+      description: 'Simple and intuitive platform, from setup to portfolio management.',
+      icon: '🎯'
+    },
+    {
+      title: 'Portfolio Diversification',
+      description: 'Invest across multiple properties and locations with minimal capital.',
+      icon: '📊'
+    },
+    {
+      title: 'Quarterly Exit Events',
+      description: 'Regular opportunities to sell your tokens and realize gains.',
+      icon: '📅'
+    }
+  ];
+
+  const steps = [
+    {
+      title: 'Create Account',
+      description: 'Create an account with your email and verify your identity.',
+      estimatedTime: '5 minutes',
+      stepNumber: 1
+    },
+    {
+      title: 'Get Verified',
+      description: 'Complete KYC/AML verification to start investing.',
+      estimatedTime: '10 minutes',
+      stepNumber: 2
+    },
+    {
+      title: 'Browse Assets',
+      description: 'Explore available properties and invest with as little as $100.',
+      estimatedTime: '2 minutes',
+      stepNumber: 3
+    }
+  ];
+
+  const partners = [
+    { name: 'Solana', logo: '/partners/solana.svg' },
+    { name: 'Circle', logo: '/partners/circle.svg' },
+    { name: 'AWS', logo: '/partners/aws.svg' }
+  ];
+
+  const testimonials = [
+    {
+      name: 'John D.',
+      rating: 5,
+      comment: 'MetaWealth has transformed how I invest in real estate. The platform is intuitive and the returns are great.',
+      image: '/testimonials/john.jpg'
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-background text-white">
+      <Navbar />
+      <main>
+        <HeroSection />
+        <div className="space-y-0">
+          <MetricsSection metrics={metrics} />
+          <FeaturesSection features={features} />
+          <ROISection />
+          <GettingStartedSection steps={steps} />
+          <HowItWorksSection />
+          <PartnersSection partners={partners} />
+          <TestimonialsSection testimonials={testimonials} />
+          <AppDownloadSection />
         </div>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      <Footer />
     </div>
   );
 }
